@@ -45,7 +45,6 @@ class FontAwesome5RailsTest < ActionDispatch::IntegrationTest
 
   test "stylesheets are served" do
     get "/assets/font-awesome5.css"
-    # binding.pry
     assert_font_awesome(response)
   end
 
@@ -59,20 +58,20 @@ class FontAwesome5RailsTest < ActionDispatch::IntegrationTest
   #   assert_match %r{/assets/fontawesome5-webfont(-\w+)?\.svg#fontawesomeregular}, response.body
   # end
 
-  # test "stylesheet is available in a css sprockets require" do
-  #   get "/assets/sprockets-require.css"
-  #   assert_font_awesome(response)
-  # end
+  test "stylesheet is available in a css sprockets require" do
+    get "/assets/sprockets-require.css"
+    assert_font_awesome(response)
+  end
 
-  # test "stylesheet is available in a sass import" do
-  #   get "/assets/sass-import.css"
-  #   assert_font_awesome(response)
-  # end
+  test "stylesheet is available in a sass import" do
+    get "/assets/sass-import.css"
+    assert_font_awesome(response)
+  end
 
-  # test "stylesheet is available in a scss import" do
-  #   get "/assets/scss-import.css"
-  #   assert_font_awesome(response)
-  # end
+  test "stylesheet is available in a scss import" do
+    get "/assets/scss-import.css"
+    assert_font_awesome(response)
+  end
 
   test "helpers should be available in the view" do
     get "/icons"
@@ -89,6 +88,6 @@ class FontAwesome5RailsTest < ActionDispatch::IntegrationTest
 
   def assert_font_awesome(response)
     assert_response :success
-    assert_match(/font-family:\s*'Font Awesome';/, response.body)
+    assert_match(/font-family:\s*'Font Awesome/, response.body)
   end
 end
