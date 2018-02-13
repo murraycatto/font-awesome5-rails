@@ -48,15 +48,24 @@ class FontAwesome5RailsTest < ActionDispatch::IntegrationTest
     assert_font_awesome(response)
   end
 
-  # test "stylesheets contain asset pipeline references to fonts" do
-  #   get "/assets/font-awesome.css"
-  #   assert_match %r{/assets/fontawesome5-webfont(-\w+)?\.eot},  response.body
-  #   assert_match %r{/assets/fontawesome5-webfont(-\w+)?\.eot\?#iefix}, response.body
-  #   assert_match %r{/assets/fontawesome5-webfont(-\w+)?\.woff2}, response.body
-  #   assert_match %r{/assets/fontawesome5-webfont(-\w+)?\.woff}, response.body
-  #   assert_match %r{/assets/fontawesome5-webfont(-\w+)?\.ttf},  response.body
-  #   assert_match %r{/assets/fontawesome5-webfont(-\w+)?\.svg#fontawesomeregular}, response.body
-  # end
+  test "stylesheets contain asset pipeline references to fonts" do
+    get "/assets/font-awesome5.css"
+    assert_match %r{/assets/fa-brands-400(-\w+)?\.eot},  response.body
+    assert_match %r{/assets/fa-brands-400(-\w+)?\.ttf},  response.body
+    assert_match %r{/assets/fa-brands-400(-\w+)?\.woff2},  response.body
+    assert_match %r{/assets/fa-regular-400(-\w+)?\.svg},  response.body
+    assert_match %r{/assets/fa-regular-400(-\w+)?\.woff},  response.body
+    assert_match %r{/assets/fa-solid-900(-\w+)?\.eot},  response.body
+    assert_match %r{/assets/fa-solid-900(-\w+)?\.ttf},  response.body
+    assert_match %r{/assets/fa-solid-900(-\w+)?\.woff2},  response.body
+    assert_match %r{/assets/fa-brands-400(-\w+)?\.svg},  response.body
+    assert_match %r{/assets/fa-brands-400(-\w+)?\.woff},  response.body
+    assert_match %r{/assets/fa-regular-400(-\w+)?\.eot},  response.body
+    assert_match %r{/assets/fa-regular-400(-\w+)?\.ttf},  response.body
+    assert_match %r{/assets/fa-regular-400(-\w+)?\.woff2},  response.body
+    assert_match %r{/assets/fa-solid-900(-\w+)?\.svg},  response.body
+    assert_match %r{/assets/fa-solid-900(-\w+)?\.woff},  response.body
+  end
 
   test "stylesheet is available in a css sprockets require" do
     get "/assets/sprockets-require.css"
